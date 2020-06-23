@@ -55,6 +55,18 @@ public class List {
 			throw new IndexOutOfBoundsException("Your index sucks!");
 		}
 
+		// Sonderfälle beim entfernen des 1. Elements.
+		if(n == 0 && this.size() > 1) {
+			head = head.next;
+			this.size -= 1;
+			return;
+		}
+		if(n == 0 && this.size() == 1) {
+			head = null;
+			this.size = 0;
+			return;
+		}
+
 		// Iteriert durch die Liste solange bis count < n-1.
 		int count = 0;
 		ListElement iter = this.head;
